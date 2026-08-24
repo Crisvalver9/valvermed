@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
-  Stethoscope, Leaf, Activity, MapPin, Phone, 
-  MessageCircle, ShieldCheck, Clock, CheckCircle2, 
+  Stethoscope, Leaf, Activity, MapPin, Phone,
+  MessageCircle, ShieldCheck, Clock, CheckCircle2,
   ChevronRight, ArrowUpRight, Lock, Menu, X, Sparkles,
-  Award, HeartHandshake, ExternalLink
+  Award, HeartHandshake, ExternalLink, Calendar
 } from 'lucide-react';
+import BookingModal from './components/BookingModal';
 const heroClinicBg = '/dency_consulta_clean_final.jpg';
 
 const fadeInUp = {
@@ -25,6 +26,7 @@ export default function App() {
   const [showPrivacyBanner, setShowPrivacyBanner] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 600], [0, 180]);
   const heroOpacity = useTransform(scrollY, [0, 450], [1, 0.15]);
@@ -116,15 +118,14 @@ export default function App() {
 
           {/* DESKTOP & MOBILE ACTIONS */}
           <div className="flex items-center gap-2.5 sm:gap-3">
-            <a 
-              href="https://wa.me/56963029722" 
-              target="_blank" 
-              rel="noreferrer" 
+            <button
+              type="button"
+              onClick={() => setBookingOpen(true)}
               className="hidden sm:inline-flex bg-valvermed-teal hover:bg-valvermed-teal/90 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
             >
               <MessageCircle size={16} />
               <span>Agendar Hora</span>
-            </a>
+            </button>
 
             {/* MOBILE HAMBURGER TOGGLE */}
             <button 
@@ -289,15 +290,14 @@ export default function App() {
               variants={fadeInUp} 
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
             >
-              <a 
-                href="https://wa.me/56963029722" 
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                onClick={() => setBookingOpen(true)}
                 className="bg-valvermed-teal hover:bg-valvermed-tealLight text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-semibold transition-all flex items-center justify-center gap-2 group shadow-lg hover:shadow-valvermed-teal/30 hover:-translate-y-0.5 active:translate-y-0 w-full sm:w-auto"
               >
                 <span>Agendar Atención</span>
                 <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
-              </a>
+              </button>
 
               <a 
                 href="#especialidades" 
@@ -402,15 +402,14 @@ export default function App() {
 
               {/* QUICK CTA */}
               <div className="mt-8">
-                <a 
-                  href="https://wa.me/56963029722" 
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setBookingOpen(true)}
                   className="inline-flex items-center gap-2 text-valvermed-teal font-semibold text-sm hover:text-valvermed-tealLight transition-colors"
                 >
                   <span>Consultar disponibilidad con el Dr. Valverde</span>
                   <ChevronRight size={16} />
-                </a>
+                </button>
               </div>
             </motion.div>
             
@@ -651,16 +650,15 @@ export default function App() {
                 </div>
               </div>
               
-              <a 
-                href="https://wa.me/56963029722" 
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                onClick={() => setBookingOpen(true)}
                 className="mt-6 sm:mt-8 w-full bg-valvermed-teal hover:bg-valvermed-teal/90 text-white text-center py-3.5 sm:py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 group shadow-lg text-xs sm:text-sm active:scale-[0.99]"
               >
-                <MessageCircle size={18} />
-                <span>Solicitar Hora por WhatsApp</span>
+                <Calendar size={18} />
+                <span>Solicitar Hora</span>
                 <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-              </a>
+              </button>
             </div>
 
           </div>
@@ -757,6 +755,9 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 11. MODAL DE AGENDAMIENTO REAL (Google Calendar) */}
+      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
 
     </div>
   );
