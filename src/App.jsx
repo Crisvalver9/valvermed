@@ -71,7 +71,7 @@ export default function App() {
         </div>
         <div className="flex items-center gap-1.5 sm:gap-2 text-valvermed-tealLight shrink-0">
           <Lock size={11} className="shrink-0" />
-          <span className="uppercase tracking-widest text-[9px] sm:text-[10px] font-semibold">Ley 21.719</span>
+          <span className="uppercase tracking-widest text-[9px] sm:text-[10px] font-semibold">Sitio Seguro (HTTPS)</span>
         </div>
       </header>
 
@@ -123,7 +123,7 @@ export default function App() {
               className="hidden sm:inline-flex bg-valvermed-teal hover:bg-valvermed-teal/90 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
             >
               <MessageCircle size={16} />
-              <span>Portal de Pacientes</span>
+              <span>Agendar Hora</span>
             </a>
 
             {/* MOBILE HAMBURGER TOGGLE */}
@@ -522,6 +522,57 @@ export default function App() {
         </div>
       </section>
 
+      {/* 6.5 FREQUENTLY ASKED QUESTIONS */}
+      <section id="preguntas-frecuentes" className="py-14 sm:py-20 bg-white relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+            <span className="text-[10px] sm:text-xs font-bold text-valvermed-teal tracking-widest uppercase mb-2 block">
+              Preguntas Frecuentes
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif text-gray-900">
+              Lo esencial, en pocas palabras
+            </h2>
+          </div>
+
+          <div className="space-y-4 sm:space-y-5">
+            {[
+              {
+                q: "¿Dónde está ubicado Valvermed?",
+                a: "En Libertador Bernardo O'Higgins 678, Piso 2, Castro, Chiloé, Región de Los Lagos.",
+              },
+              {
+                q: "¿Cuál es el horario de atención?",
+                a: "Lunes a viernes de 09:00 a 20:00 horas.",
+              },
+              {
+                q: "¿Quién atiende en Valvermed?",
+                a: "El Dr. Dency C. Valverde Cornejo, Médico Cirujano con más de 20 años de trayectoria en Chiloé, Registro Médico 24721-4.",
+              },
+              {
+                q: "¿Qué especialidades ofrece Valvermed?",
+                a: "Medicina Biorreguladora, Diagnóstico Funcional, Estética Médica Periocular, y Atención Médica General y Telemedicina.",
+              },
+              {
+                q: "¿Qué previsiones o convenios acepta Valvermed?",
+                a: "Particular, Fonasa, Banmédica, Cruz Blanca, Colmena, Nueva Más Vida, Consalud y Dipreca.",
+              },
+            ].map((item) => (
+              <div
+                key={item.q}
+                className="bg-gray-50/70 border border-gray-100 rounded-2xl p-5 sm:p-6"
+              >
+                <h3 className="font-serif font-bold text-gray-900 text-base sm:text-lg mb-1.5">
+                  {item.q}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 7. CONTACT & LOCATION */}
       <section id="ubicacion" className="py-14 sm:py-20 md:py-28 bg-gray-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -635,10 +686,10 @@ export default function App() {
           <div className="md:col-span-5">
             <p className="text-white font-semibold mb-2 flex items-center gap-1.5 text-xs sm:text-sm">
               <ShieldCheck size={16} className="text-valvermed-tealLight shrink-0" />
-              <span>Protección de Datos Clínicos (Ley N° 21.719)</span>
+              <span>Privacidad y Confidencialidad</span>
             </p>
             <p className="font-light leading-relaxed text-xs text-gray-400">
-              Los historiales médicos y datos sensibles recopilados a través de nuestros canales oficiales están protegidos bajo la <strong>Ley N° 21.719</strong> sobre Protección de la Vida Privada y Datos Personales en Chile. Este portal cuenta con cifrado SSL de extremo a extremo.
+              Su información de contacto se utiliza exclusivamente para coordinar su atención médica y no se comparte con terceros. La conexión a este sitio está cifrada mediante HTTPS.
             </p>
           </div>
           
@@ -690,7 +741,7 @@ export default function App() {
                 <Lock size={16} />
               </div>
               <p className="text-[11px] sm:text-xs text-gray-300 font-light leading-relaxed">
-                <strong className="text-white font-semibold">Cumplimiento Ley 21.719:</strong> Este sitio utiliza cookies técnicas esenciales y garantiza estricta confidencialidad médica sin rastreo publicitario.
+                Este sitio no utiliza cookies de rastreo publicitario. Solo se emplean recursos técnicos esenciales para su funcionamiento.
               </p>
             </div>
             
