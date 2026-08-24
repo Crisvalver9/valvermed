@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-valvermed-teal: #115E59;
+  --color-valvermed-tealLight: #14B8A6;
+  --color-valvermed-leaf: #65A30D;
+  --color-valvermed-water: #0284C7;
+  --color-valvermed-bg: #F9FAFB;
+
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-valvermed-bg);
+    color: var(--color-gray-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--color-gray-900);
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+  
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--color-gray-100);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  }
+}
