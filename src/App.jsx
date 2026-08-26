@@ -243,8 +243,8 @@ export default function App() {
         {/* PARALLAX BACKGROUND WITH CLEAN REAL CLINIC CONSULTATION PHOTO (DR. DENCY & RECEPCION EN MADERA) */}
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
           <img 
-            src={heroClinicBg} 
-            alt="Dr. Dency Valverde en la Recepción y Consulta Valvermed Castro" 
+            src={heroClinicBg}
+            alt="Recepción de Consulta Médica Valvermed en Castro, Chiloé"
             className="w-full h-full object-cover object-[60%_center] md:object-[75%_center] lg:object-[80%_center] scale-105" 
           />
           {/* Refined gradient overlay: rich dark gradient on the left for text readability, clear visibility on the right for Dr. Dency and the wooden clinic */}
