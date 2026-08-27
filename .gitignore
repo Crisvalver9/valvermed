@@ -31,3 +31,6 @@ dist-ssr
 
 # Reversible backup of discarded trial images (Stage 0 cleanup)
 _descartes/
+
+# Credenciales sueltas (nunca commitear)
+.secrets/
