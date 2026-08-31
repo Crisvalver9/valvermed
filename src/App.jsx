@@ -631,7 +631,7 @@ export default function App() {
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">Horario de Consultas</p>
                     <p className="text-xs text-gray-500 font-light mt-0.5">
-                      Lunes a Viernes: 09:00 AM — 20:00 PM
+                      Lunes a Viernes: 09:00 — 20:00 horas
                     </p>
                   </div>
                 </div>
